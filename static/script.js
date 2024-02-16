@@ -9,6 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const denominator = Math.pow(1 + monthlyInterest, loanTerm) - 1;
       const monthlyPayment = (loanAmount * monthlyInterest) / denominator;
   
-      document.getElementById('monthlyPayment').textContent = `$${monthlyPayment.toFixed(2)}`;
+      document.getElementById('monthlyPayment').textContent = `₹${monthlyPayment.toFixed(2)}`;
     });
   });

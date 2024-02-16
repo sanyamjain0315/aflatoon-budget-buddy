@@ -1,0 +1,16 @@
+
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+
+}
+.content {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.2em;
+}

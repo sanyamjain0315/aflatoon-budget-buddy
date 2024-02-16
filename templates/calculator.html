@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <div class="container">
         <h2 class="mt-4">Student Loan Calculator</h2>
         <div class="form-group mt-4">
@@ -20,7 +14,7 @@
           <label>Loan Term (years):</label>
           <input id="loanTerm" class="form-control" type="number">
         </div>
-        <button id="calculateBtn" class="btn btn-primary">Calculate</button>
+        <button id="calculateBtn" class="btn btn-primary my-3">Calculate</button>
         <div id="result" class="mt-4">
           <h3>Monthly Payment:</h3>
           <p id="monthlyPayment">₹0.00</p>
@@ -29,3 +23,4 @@
       <script src="/static/script.js"></script>
 </body>
 </html>
+{% endblock %}

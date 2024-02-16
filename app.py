@@ -1,5 +1,5 @@
 from flask import Flask , render_template
-
+from finance import search_youtube_videos
 app = Flask(__name__)
 
 @app.route("/")
@@ -13,3 +13,12 @@ def home():
 @app.route("/calculator/")
 def calculator():
     return render_template('calculator.html')
+
+@app.route("/Scanner/")
+def Scanner():
+    return render_template('Scanner.html')
+
+@app.route("/videos/")
+def videos():
+    data = search_youtube_videos("financa advice for students", 6)
+    return render_template("videos.html", length = len(data), data=data)
