@@ -1,10 +1,9 @@
 from googleapiclient.discovery import build
-
-API_KEY = ''
+import os
 
 def search_youtube_videos(query, max_results=5):
     # Build the YouTube API service
-    youtube = build('youtube', 'v3', developerKey=API_KEY)
+    youtube = build('youtube', 'v3', developerKey=os.getenv("YOUTUBE_KEY"))
 
     # Call the search.list method to retrieve videos
     search_response = youtube.search().list(

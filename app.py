@@ -6,10 +6,13 @@ import requests
 from PIL import Image
 from ocr import extract_receipt
 from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv()
 
 client = MongoClient("mongodb://localhost:27017")
 db = client['budgetBuddy']
-collection = ['users']
+collection = db['users']
 
 
 app = Flask(__name__)
@@ -49,11 +52,6 @@ def Scanner():
             except:
                 return render_template("file_uploader.html")
 
-
-
-
-            # return redirect(request.url)
-
     return render_template('file_uploader.html', data=False)
 @app.route("/Signin/")
 def Signin():
@@ -63,9 +61,8 @@ def Signin():
 def chatbot():
     if request.method == "POST":
         user_input = request.form['user_input']
-        API_URL = "http://localhost:3000/api/v1/prediction/3df2a231-e08b-4d2b-9583-4c4c6075e6d2"
         payload = {"question": user_input}
-        response = requests.post(API_URL, json=payload).json()['text']
+        response = requests.post(os.getenv("FLOWISE_URL"), json=payload).json()['text']
         print(r"{}".format(response))
         return render_template("chatbot.html", user_input=user_input, chatbot_response=response)
     else:
