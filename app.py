@@ -9,7 +9,7 @@ from pymongo import MongoClient
 
 client = MongoClient("mongodb://localhost:27017")
 db = client['budgetBuddy']
-collection = ['users']
+collection = db['users']
 
 
 app = Flask(__name__)
@@ -83,11 +83,16 @@ def getBalance():
 def createUser():
     if request.method == "POST":
         username = request.form['username']
+        password = request.form['password']
         user = collection.find_one({"username": username})
         if user:
-            password = request.form['password']
             if password == user['password']:
                 return render_template("user_input.html")
+        else:
+            new_user = {"username": username, "password":password}
+            collection.insert_one(new_user)
+            return render_template("user_input.html")
+            
 
 if __name__ == "__main__":
     app.run(debug=True)
