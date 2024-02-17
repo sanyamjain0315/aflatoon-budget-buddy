@@ -5,14 +5,14 @@ body, html {
     justify-content: center;
     align-items: center;
 }
-
-.container {
+.container{
+    color: #000; /* Adjust text color to black */
     width: 200px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #252525;
     border-radius: 5px;
+    background-color: #f0f0f0;
 }
-
 .form-group {
     margin-bottom: 15px;
 }
@@ -32,13 +32,17 @@ input[type="number"] {
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #101820;
+    color: #8b8787;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e2e5e9;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

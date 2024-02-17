@@ -12,3 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('monthlyPayment').textContent = `₹${monthlyPayment.toFixed(2)}`;
     });
   });
+
+  function redirectToSignIn() {
+    window.location.href = "signin.html"; // Change "signin.html" to the actual URL of your sign-in page
+}
+
+function redirectToSignUp() {
+    window.location.href = "signup.html"; // Change "signup.html" to the actual URL of your sign-up page
+}

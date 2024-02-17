@@ -22,3 +22,12 @@ def Scanner():
 def videos():
     data = search_youtube_videos("financa advice for students", 6)
     return render_template("videos.html", length = len(data), data=data)
+
+@app.route("/Signup/")
+def Signup():
+    return render_template('signup.html')
+
+
+@app.route("/Signin/")
+def Signin():
+    return render_template('signin.html')
